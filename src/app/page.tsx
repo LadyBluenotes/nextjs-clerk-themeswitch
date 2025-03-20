@@ -3,16 +3,18 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import { useTheme } from "next-themes";
+import { SignIn } from "@clerk/nextjs";
 
 export default function Home() {
   const { resolvedTheme, setTheme } = useTheme()
   return (
     <div className={styles.page}>
       <div>
-            <button onClick={() => setTheme('light')}>Light</button>
-            <button onClick={() => setTheme('dark')}>Dark</button>
-            <button onClick={() => setTheme('system')}>System</button>
-        </div>
+          <button onClick={() => setTheme('light')}>Light</button>
+          <button onClick={() => setTheme('dark')}>Dark</button>
+          <button onClick={() => setTheme('system')}>System</button>
+      </div>
+      <SignIn />
       <main className={styles.main}>
         <Image
           className={resolvedTheme === 'dark' ? styles.logo : ''}
